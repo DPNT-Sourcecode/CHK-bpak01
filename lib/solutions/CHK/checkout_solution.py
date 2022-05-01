@@ -89,5 +89,9 @@ def checkout(skus):
     return total_checkout_value
 
 
+print(checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+# - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 890
+# - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 1760
+# - {"method":"checkout","params":["LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"],"id":"CHK_R4_140"}, expected: 1880, got: 1760
 
 
