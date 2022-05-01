@@ -81,11 +81,12 @@ def checkout(skus):
                 discounted, sku_num = divmod(sku_num, offer[0])
                 total_checkout_value += discounted * offer[1]
             total_checkout_value += sku_num * price_table[unit]
+            sku_count[unit] = 0
 
         else:
             total_checkout_value += price_table[unit] * sku_count[unit]
+            sku_count[unit] = 0
 
-    bundle_dict = {sku, count for sku, count in sku_count if sku in bundle_offer}
     bundle_skus = sorted(sku_count.items(), key=lambda x: price_table[x[0]], reverse=True)
     bundle_list = []
     for unit in bundle_skus:
@@ -112,6 +113,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 
