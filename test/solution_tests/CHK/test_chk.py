@@ -16,7 +16,6 @@ class TestHello():
     def test_checkout_five(self):
         assert checkout_solution.checkout("0AA") == -1
 
-    #CHK_2
     def test_checkout_six(self):
         assert checkout_solution.checkout("AAAAA") == 200
     
@@ -29,7 +28,6 @@ class TestHello():
     def test_checkout_nine(self):
         assert checkout_solution.checkout("E") == 40
     
-    #CHK3
     def test_checkout_ten(self):
         assert checkout_solution.checkout("FF") == 20
 
@@ -46,21 +44,12 @@ class TestHello():
         assert checkout_solution.checkout("FFFFFFFFFFF") == 80
     
     def test_checkout_fifteen(self):
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
-    
-    def test_checkout_sixteen(self):
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1880
-    
-    def test_checkout_seventeen(self):
-        assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1880
-    
-    def test_checkout_seventeen(self):
         assert checkout_solution.checkout("RRRRQ") == 200
     
-    def test_checkout_eighteen(self):
+    def test_checkout_sixteen(self):
         assert checkout_solution.checkout("ZZZSTYX") == 107
 
-    def test_checkout_eighteen(self):
+    def test_checkout_seventeen(self):
         assert checkout_solution.checkout("ZZ") == 42
     
     def test_checkout_eighteen(self):
