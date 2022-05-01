@@ -27,7 +27,7 @@ def checkout(skus):
     total_checkout_value = 0
 
     for unit in price_table.keys():
-
+        print(unit)
         if unit == "A":
             discounted, non_discounted = divmod(sku_count[unit], 3)
             total_checkout_value += discounted * 130
@@ -40,3 +40,6 @@ def checkout(skus):
             total_checkout_value += price_table[unit] * sku_count[unit]
     
     return total_checkout_value
+
+
+print(checkout("AAB"))
