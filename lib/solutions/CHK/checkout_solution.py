@@ -43,12 +43,15 @@ def checkout(skus):
                "Q" : [(3, 80)], 
                "V" : [(3, 130), (2, 90)],
               }
+    
+    bundle_offer = ["S", "T", "X", "Y", "Z"]
 
     sku_list = [unit for unit in skus]
     for unit in sku_list:
         if unit not in price_table:
             return -1
     
+
 
     sku_count = {}
     for unit in sku_list:
@@ -65,13 +68,12 @@ def checkout(skus):
                     del sku_count[offer[3]]
     
  
+
     total_checkout_value = 0
-
-
-    
-
-
     for unit in sku_count.keys():
+        if unit in bundle_offer:
+            continue
+
         if unit in x_for_y:
             sku_num = sku_count[unit]
 
@@ -79,15 +81,39 @@ def checkout(skus):
                 discounted, sku_num = divmod(sku_num, offer[0])
                 total_checkout_value += discounted * offer[1]
             total_checkout_value += sku_num * price_table[unit]
+            del sku_count[unit]
 
-    
         else:
             total_checkout_value += price_table[unit] * sku_count[unit]
+            del sku_count[unit]
 
-    
-    
+
+
+    bundle_skus = sorted(sku_count.items(), key=lambda x: x[1], reverse=True)
+    bundle_list = []
+    for unit in bundle_skus:
+        counter = unit[1]
+        while counter != 0:
+            bundle_list.append(unit[0])
+            counter -= 1
+    print(bundle_list)
+    if len(bundle_list) % 3 == 0:
+        bundles_num, _ = divmod(len(bundle_list), 3)
+        total_checkout_value += bundles_num * 45
+    elif len(bundle_list) > 3:
+        bundles_num, remainder = divmod(len(bundle_list), 3)
+        total_checkout_value += bundles_num * 45
+        
+        for unit in bundle_list[remainder:]:
+            total_checkout_value += price_table[unit]
+    else:
+        for unit in bundle_list[remainder:]:
+            total_checkout_value += price_table[unit]
+
+
     return total_checkout_value
 
+print(checkout("STYXZ"))
 
 
 
