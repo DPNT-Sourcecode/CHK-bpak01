@@ -15,7 +15,7 @@ def checkout(skus):
                     "H" : 10,
                     "I" : 35,
                     "J" : 60,
-                    "K" : 80,
+                    "K" : 70,
                     "L" : 90,
                     "M" : 15,
                     "N" : 40,
@@ -23,14 +23,14 @@ def checkout(skus):
                     "P" : 50,
                     "Q" : 30,
                     "R" : 50,
-                    "S" : 30,
+                    "S" : 20,
                     "T" : 20,
                     "U" : 40,
                     "V" : 50,
                     "W" : 20,
-                    "X" : 90,
-                    "Y" : 10,
-                    "Z" : 50,
+                    "X" : 17,
+                    "Y" : 20,
+                    "Z" : 21,
                   }
     
     buy_x_get_y = [(2, "E", 1, "B"), (2, "F", 1, "F"), (3, "N", 1, "M"), (3, "R", 1, "Q"), (3, "U", 1, "U") ]
@@ -64,7 +64,7 @@ def checkout(skus):
                 if sku_count[offer[3]] <= 0:
                     del sku_count[offer[3]]
     
-    print(sku_count)
+ 
     total_checkout_value = 0
     for unit in sku_count.keys():
         if unit in x_for_y:
@@ -84,8 +84,6 @@ def checkout(skus):
     return total_checkout_value
 
 
-print(checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"))
-# - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 890
-# - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 1760
-# - {"method":"checkout","params":["LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"],"id":"CHK_R4_140"}, expected: 1880, got: 1760
+
+
 
