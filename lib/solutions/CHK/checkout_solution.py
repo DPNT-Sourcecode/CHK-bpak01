@@ -33,7 +33,9 @@ def checkout(skus):
                     "Z" : 50,
                   }
     
+    buy_x_get_y =[(2, "E", 1, "B"), (2, "F", 1, "F"), (3, "N", 1, "M"), (3, "R", 1, "Q"), (3, "U", 1, "U") ]
 
+    x_for_y = [[(5, "A", 200), (3, "A", 130)], [(2, "B", 45)], [(10, "H", 80)], [(5, "H", 45)], [(2, "K", 150)], [(5, "P", 200)], [(3, "Q", 80)], [(3, "V", 130), (2, "V", 90)]]
 
     sku_list = [unit for unit in skus]
     for unit in sku_list:
@@ -97,6 +99,7 @@ def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, sku_dict)
                 del sku_dict[sku_promoted]
             
             return sku_dict
+
 
 
 
