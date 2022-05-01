@@ -35,7 +35,14 @@ def checkout(skus):
     
     buy_x_get_y = [(2, "E", 1, "B"), (2, "F", 1, "F"), (3, "N", 1, "M"), (3, "R", 1, "Q"), (3, "U", 1, "U") ]
 
-    x_for_y = [[(5, "A", 200), (3, "A", 130)], [(2, "B", 45)], [(10, "H", 80)], [(5, "H", 45)], [(2, "K", 150)], [(5, "P", 200)], [(3, "Q", 80)], [(3, "V", 130), (2, "V", 90)]]
+    x_for_y = {"A" : [(5, 200), (3, 130)], 
+               "B" : [(2, 45)], 
+               "H" : [(10, 80), (5, 45)], 
+               "K" : [(2, 150)], 
+               "P" : [(5, 200)], 
+               "Q" : [(3, 80)], 
+               "V" : [(3, 130), (2, 90)],
+              }
 
     sku_list = [unit for unit in skus]
     for unit in sku_list:
@@ -61,28 +68,22 @@ def checkout(skus):
                     del sku_count[offer[3]]
     
     
-
-
-    
     total_checkout_value = 0
-
     for unit in sku_count.keys():
+        if unit in x_for_y:
+            sku_num = sku_count[unit]
 
-        if unit == "A":
-            discounted, non_discounted = divmod(sku_count[unit], 5)
-            total_checkout_value += discounted * 200
-
-            discounted, non_discounted = divmod(non_discounted, 3)
-            total_checkout_value += discounted * 130
-            total_checkout_value += non_discounted * price_table[unit]
-        elif unit == "B":
-            discounted, non_discounted = divmod(sku_count[unit], 2)
-            total_checkout_value += discounted * 45
-            total_checkout_value += non_discounted * price_table[unit]
+            for offer in x_for_y[unit]:
+                discounted, sku_num = divmod(sku_num, offer[0])
+                total_checkout_value += discounted * offer[1]
+            total_checkout_value += sku_num * price_table[unit]
+    
         else:
             total_checkout_value += price_table[unit] * sku_count[unit]
     
+    
     return total_checkout_value
+
 
 
 
