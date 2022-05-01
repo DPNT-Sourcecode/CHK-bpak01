@@ -76,15 +76,17 @@ def checkout(skus):
             for offer in x_for_y[unit]:
                 discounted, sku_num = divmod(sku_num, offer[0])
                 total_checkout_value += discounted * offer[1]
+            print(unit)
             total_checkout_value += sku_num * price_table[unit]
+            print(total_checkout_value)
     
         else:
+            print(unit)
             total_checkout_value += price_table[unit] * sku_count[unit]
+            print(total_checkout_value)
     
     
     return total_checkout_value
-
-
 
 
 
