@@ -89,7 +89,8 @@ def checkout(skus):
 
 
 
-    bundle_skus = sorted(sku_count.items(), key=lambda x: x[1], reverse=True)
+    bundle_skus = sorted(sku_count.items(), key=lambda x: price_table[x[0]], reverse=True)
+    print(bundle_skus)
     bundle_list = []
     for unit in bundle_skus:
         counter = unit[1]
@@ -115,7 +116,8 @@ def checkout(skus):
 
     return total_checkout_value
 
-print(checkout("STYXZ"))
+print(checkout("STYXZZZ"))
+
 
 
 
