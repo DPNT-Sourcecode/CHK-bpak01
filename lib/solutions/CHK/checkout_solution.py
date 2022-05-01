@@ -61,6 +61,8 @@ def checkout(skus):
         else:
             if offer[1] in sku_count.keys() and offer[3] in sku_count.keys() and sku_count[offer[1]] >= offer[0]:
                 sku_count[offer[3]] -= math.ceil(sku_count[offer[1]] * (offer[2]/offer[0]))
+                if sku_count[offer[3]] <= 0:
+                    del sku_count[offer[3]]
     
     print(sku_count)
     total_checkout_value = 0

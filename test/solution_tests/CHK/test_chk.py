@@ -54,3 +54,8 @@ class TestHello():
     def test_checkout_seventeen(self):
         assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1880
     
+    def test_checkout_seventeen(self):
+        assert checkout_solution.checkout("RRRRQ") == 200
+    
+
+    
