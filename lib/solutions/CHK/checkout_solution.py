@@ -82,12 +82,12 @@ def checkout(skus):
     return total_checkout_value
 
 
-def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, **sku_dict):
+def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, sku_dict):
     
     if sku_bought == sku_promoted:
         if sku_bought in sku_dict.keys() and sku_dict[sku_bought] > sku_offer:
             sku_dict[sku_bought] = math.ceil(sku_dict[sku_bought] * (sku_offer/(sku_offer+skus_gifted)))
-        return sku_dict
+            return sku_dict
     
     else:
         if sku_bought in sku_dict.keys() and sku_promoted in sku_dict.keys():
@@ -97,6 +97,7 @@ def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, **sku_dic
                 del sku_dict[sku_promoted]
             
             return sku_dict
+
 
 
 
