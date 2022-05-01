@@ -1,4 +1,4 @@
-
+import math
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -10,6 +10,7 @@ def checkout(skus):
                     "C" : 20,
                     "D" : 15,
                     "E" : 40,
+                    "F" : 10,
                   }
     
 
@@ -33,9 +34,8 @@ def checkout(skus):
             del sku_count["B"]
     
     # ADD an F for every 2 F's
-    if "F" in sku_count.keys():
-        additions, _ = divmod(sku_count["F"], 2)
-        sku_count["F"] = additions
+    if "F" in sku_count.keys() and sku_count["F"] > 2:
+        sku_count["F"] = math.ceil(sku_count["F"] * (1/3))
 
 
     
@@ -58,5 +58,6 @@ def checkout(skus):
             total_checkout_value += price_table[unit] * sku_count[unit]
     
     return total_checkout_value
+
 
 

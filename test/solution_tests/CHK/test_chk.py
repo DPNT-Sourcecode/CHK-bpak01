@@ -28,3 +28,21 @@ class TestHello():
     
     def test_checkout_nine(self):
         assert checkout_solution.checkout("E") == 40
+    
+    #CHK3
+    def test_checkout_ten(self):
+        assert checkout_solution.checkout("FF") == 20
+
+    def test_checkout_eleven(self):
+        assert checkout_solution.checkout("FFF") == 20
+    
+    def test_checkout_twelve(self):
+        assert checkout_solution.checkout("FFFF") == 30
+    
+    def test_checkout_thirteen(self):
+        assert checkout_solution.checkout("FFFFF") == 40
+    
+    def test_checkout_fourteen(self):
+        assert checkout_solution.checkout("FFFFFF") == 40
+    
+
