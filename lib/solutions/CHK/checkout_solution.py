@@ -43,19 +43,24 @@ def checkout(skus):
     
     sku_count = {}
 
+
+
     for unit in sku_list:
         sku_count[unit] = sku_count.get(unit, 0) + 1
     
+    sku_count = buy_x_get_y_free("E", "B", 2, 1, sku_count)
+
+    sku_count = buy_x_get_y_free("F", "F", 2, 1, sku_count)
     # ADD a B for every two E's
-    if "B" in sku_count.keys() and "E" in sku_count.keys():
-        additions, _ = divmod(sku_count["E"], 2)
-        sku_count["B"] -= additions
-        if sku_count["B"] < 1:
-            del sku_count["B"]
+    #if "B" in sku_count.keys() and "E" in sku_count.keys():
+    #    additions, _ = divmod(sku_count["E"], 2)
+    #    sku_count["B"] -= additions
+    #    if sku_count["B"] < 1:
+    #        del sku_count["B"]
     
     # ADD an F for every 2 F's
-    if "F" in sku_count.keys() and sku_count["F"] > 2:
-        sku_count["F"] = math.ceil(sku_count["F"] * (2/3))
+    #if "F" in sku_count.keys() and sku_count["F"] > 2:
+    #    sku_count["F"] = math.ceil(sku_count["F"] * (2/3))
 
 
     
@@ -78,4 +83,22 @@ def checkout(skus):
             total_checkout_value += price_table[unit] * sku_count[unit]
     
     return total_checkout_value
+
+
+def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, sku_dict):
+    
+    if sku_bought == sku_promoted:
+        if sku_bought in sku_dict.keys() and sku_dict[sku_bought] > sku_offer:
+            sku_dict[sku_bought] = math.ceil(sku_dict[sku_bought] * (sku_offer/(sku_offer+skus_gifted)))
+        return sku_dict
+    
+    else:
+        if sku_bought in sku_dict.keys() and sku_promoted in sku_dict.keys():
+            additions, _ = divmod(sku_dict[sku_bought], sku_offer)
+            sku_dict[sku_promoted] -= additions
+            if sku_dict[sku_promoted] < 1:
+                del sku_dict[sku_promoted]
+            
+            return sku_dict
+
 
