@@ -1,0 +1,1 @@
+from solutions.HLO import hello_solution
