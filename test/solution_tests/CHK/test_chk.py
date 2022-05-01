@@ -45,4 +45,3 @@ class TestHello():
     def test_checkout_fourteen(self):
         assert checkout_solution.checkout("FFFFFFFFFFF") == 80
     
-
