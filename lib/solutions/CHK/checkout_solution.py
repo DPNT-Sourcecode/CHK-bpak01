@@ -9,6 +9,7 @@ def checkout(skus):
                     "B" : 30,
                     "C" : 20,
                     "D" : 15,
+                    "E" : 40,
                   }
     
 
@@ -29,7 +30,8 @@ def checkout(skus):
     for unit in sku_count.keys():
 
         if unit == "A":
-            discounted, non_discounted = divmod(sku_count[unit], 3)
+            discounted, non_discounted = divmod(sku_count[unit], 5)
+            
             total_checkout_value += discounted * 130
             total_checkout_value += non_discounted * price_table[unit]
         elif unit == "B":
@@ -40,4 +42,5 @@ def checkout(skus):
             total_checkout_value += price_table[unit] * sku_count[unit]
     
     return total_checkout_value
+
 
