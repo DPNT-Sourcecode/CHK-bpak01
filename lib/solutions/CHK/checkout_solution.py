@@ -90,25 +90,25 @@ def checkout(skus):
 
 
     bundle_skus = sorted(sku_count.items(), key=lambda x: price_table[x[0]], reverse=True)
-    print(bundle_skus)
     bundle_list = []
     for unit in bundle_skus:
         counter = unit[1]
         while counter != 0:
             bundle_list.append(unit[0])
             counter -= 1
-    print(bundle_list)
+
     if len(bundle_list) % 3 == 0:
         bundles_num, _ = divmod(len(bundle_list), 3)
         total_checkout_value += bundles_num * 45
+        
     elif len(bundle_list) > 3:
         bundles_num, remainder = divmod(len(bundle_list), 3)
         total_checkout_value += bundles_num * 45
-        print(total_checkout_value)
-        
+
         for unit in bundle_list[-remainder:]:
             print(unit)
             total_checkout_value += price_table[unit]
+
     else:
         for unit in bundle_list[remainder:]:
             total_checkout_value += price_table[unit]
@@ -116,7 +116,7 @@ def checkout(skus):
 
     return total_checkout_value
 
-print(checkout("STYXZZZ"))
+
 
 
 
