@@ -66,6 +66,11 @@ def checkout(skus):
     
  
     total_checkout_value = 0
+
+
+    
+
+
     for unit in sku_count.keys():
         if unit in x_for_y:
             sku_num = sku_count[unit]
@@ -82,6 +87,7 @@ def checkout(skus):
     
     
     return total_checkout_value
+
 
 
 
