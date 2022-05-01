@@ -52,7 +52,7 @@ def checkout(skus):
     
         if offer[1] == offer[3]:
             if offer[1] in sku_count.keys() and sku_count[offer[3]] > offer[0]:
-                sku_count[offer[1]] = math.ceil(sku_count[offer[1]] * (offer[0]/offer[0]+offer[2]))
+                sku_count[offer[1]] = math.ceil(sku_count[offer[1]] * (offer[0]/(offer[0]+offer[2])))
         else:
             if offer[1] in sku_count.keys() and offer[3] in sku_count.keys():
                 additions, _ = divmod(sku_count[offer[1]], offer[2])
@@ -83,6 +83,7 @@ def checkout(skus):
             total_checkout_value += price_table[unit] * sku_count[unit]
     
     return total_checkout_value
+
 
 
 

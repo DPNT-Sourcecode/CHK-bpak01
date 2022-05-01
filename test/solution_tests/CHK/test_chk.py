@@ -14,7 +14,7 @@ class TestHello():
         assert checkout_solution.checkout("") == 0
 
     def test_checkout_five(self):
-        assert checkout_solution.checkout("GAA") == -1
+        assert checkout_solution.checkout("0AA") == -1
 
     #CHK_2
     def test_checkout_six(self):
