@@ -25,3 +25,7 @@ class TestHello():
     
     def test_checkout_eight(self):
         assert checkout_solution.checkout("EEEEBB") == 160
+    
+    def test_checkout_nine(self):
+        assert checkout_solution.checkout("E") == 40
+

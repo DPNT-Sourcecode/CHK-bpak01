@@ -26,7 +26,7 @@ def checkout(skus):
         sku_count[unit] = sku_count.get(unit, 0) + 1
     
     # ADD a B for every two E's
-    if "E" in sku_count.keys():
+    if "B" in sku_count.keys() and "E" in sku_count.keys():
         additions, _ = divmod(sku_count["E"], 2)
         sku_count["B"] -= additions
         if sku_count["B"] < 1:
@@ -52,6 +52,7 @@ def checkout(skus):
             total_checkout_value += price_table[unit] * sku_count[unit]
     
     return total_checkout_value
+
 
 
 
