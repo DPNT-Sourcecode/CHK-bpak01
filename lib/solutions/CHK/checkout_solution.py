@@ -36,20 +36,17 @@ def checkout(skus):
 
 
     sku_list = [unit for unit in skus]
-
     for unit in sku_list:
         if unit not in price_table:
             return -1
     
+
     sku_count = {}
-
-
-
     for unit in sku_list:
         sku_count[unit] = sku_count.get(unit, 0) + 1
-    
-    sku_count = buy_x_get_y_free("E", "B", 2, 1, sku_count)
 
+
+    sku_count = buy_x_get_y_free("E", "B", 2, 1, sku_count)
     sku_count = buy_x_get_y_free("F", "F", 2, 1, sku_count)
     # ADD a B for every two E's
     #if "B" in sku_count.keys() and "E" in sku_count.keys():
@@ -85,7 +82,7 @@ def checkout(skus):
     return total_checkout_value
 
 
-def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, sku_dict):
+def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, **sku_dict):
     
     if sku_bought == sku_promoted:
         if sku_bought in sku_dict.keys() and sku_dict[sku_bought] > sku_offer:
@@ -100,5 +97,6 @@ def buy_x_get_y_free(sku_bought, sku_promoted, sku_offer, skus_gifted, sku_dict)
                 del sku_dict[sku_promoted]
             
             return sku_dict
+
 
 
