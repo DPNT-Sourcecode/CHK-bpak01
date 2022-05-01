@@ -110,11 +110,12 @@ def checkout(skus):
             total_checkout_value += price_table[unit]
 
     else:
-        for unit in bundle_list[remainder:]:
+        for unit in bundle_list:
             total_checkout_value += price_table[unit]
 
 
     return total_checkout_value
+
 
 
 
