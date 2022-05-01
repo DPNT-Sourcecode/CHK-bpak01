@@ -15,3 +15,13 @@ class TestHello():
 
     def test_checkout_five(self):
         assert checkout_solution.checkout("GAA") == -1
+
+    #CHK_2
+    def test_checkout_six(self):
+        assert checkout_solution.checkout("AAAAA") == 200
+    
+    def test_checkout_seven(self):
+        assert checkout_solution.checkout("AAAAAAAA") == 330
+    
+    def test_checkout_eight(self):
+        assert checkout_solution.checkout("EEEEBB") == 160
