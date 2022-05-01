@@ -54,13 +54,12 @@ def checkout(skus):
     for unit in sku_list:
         sku_count[unit] = sku_count.get(unit, 0) + 1
 
-    print(sku_count.items())
     for offer in buy_x_get_y:
         if offer[1] == offer[3]:
             if offer[1] in sku_count.keys() and sku_count[offer[3]] > offer[0]:
                 sku_count[offer[1]] = math.ceil(sku_count[offer[1]] * (offer[0]/(offer[0]+offer[2])))
         else:
-            if offer[1] in sku_count.keys() and offer[3] in sku_count.keys():
+            if offer[1] in sku_count.keys() and offer[3] in sku_count.keys() and sku_count[offer[1]] > offer[0]:
                 additions, _ = divmod(sku_count[offer[1]], offer[2])
                 sku_count[offer[3]] -= additions
                 if sku_count[offer[3]] < 1:
@@ -92,6 +91,7 @@ print(checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
 # - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 890
 # - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 1760
 # - {"method":"checkout","params":["LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"],"id":"CHK_R4_140"}, expected: 1880, got: 1760
+
 
 
 
