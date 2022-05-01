@@ -103,8 +103,10 @@ def checkout(skus):
     elif len(bundle_list) > 3:
         bundles_num, remainder = divmod(len(bundle_list), 3)
         total_checkout_value += bundles_num * 45
+        print(total_checkout_value)
         
-        for unit in bundle_list[remainder:]:
+        for unit in bundle_list[-remainder:]:
+            print(unit)
             total_checkout_value += price_table[unit]
     else:
         for unit in bundle_list[remainder:]:
@@ -114,6 +116,7 @@ def checkout(skus):
     return total_checkout_value
 
 print(checkout("STYXZ"))
+
 
 
 
