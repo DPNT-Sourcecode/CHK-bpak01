@@ -35,7 +35,7 @@ def checkout(skus):
     
     # ADD an F for every 2 F's
     if "F" in sku_count.keys() and sku_count["F"] > 2:
-        sku_count["F"] = math.ceil(sku_count["F"] * (1/3))
+        sku_count["F"] = math.ceil(sku_count["F"] * (2/3))
 
 
     

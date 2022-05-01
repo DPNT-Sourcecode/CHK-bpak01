@@ -40,9 +40,9 @@ class TestHello():
         assert checkout_solution.checkout("FFFF") == 30
     
     def test_checkout_thirteen(self):
-        assert checkout_solution.checkout("FFFFF") == 40
+        assert checkout_solution.checkout("FFFFFF") == 40
     
     def test_checkout_fourteen(self):
-        assert checkout_solution.checkout("FFFFFF") == 40
+        assert checkout_solution.checkout("FFFFFFFFFFF") == 80
     
 
